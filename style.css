@@ -83,6 +83,25 @@ main {
   margin-top: 10px;
 }
 
+.weather-forecast {
+  display: flex;
+}
+
+.forecast-day {
+  text-align: center;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.forecast-icon {
+  text-align: center;
+}
+
+.forecast-temp {
+  text-align: center;
+  color: #5fc9f3;
+}
+
 a {
   color: #2e79ba;
   text-decoration: none;
