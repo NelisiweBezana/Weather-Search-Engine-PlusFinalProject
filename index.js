@@ -69,9 +69,9 @@ function getForecast(event) {
 }
 
 function displayForecast(response) {
-  //let date = new Date(response.data.time * 1000);
-  //let dateAndTime = document.querySelector("#day-0");
-  // dateAndTime.innerHTML = showDate(date);
+  let date = new Date(response.daily[0].time * 1000);
+  let forecastday = document.querySelector("#day-0");
+  forecastday.innerHTML = forecastDate(date);
 
   let forecastIcon = document.querySelector("#icon-0");
   forecastIcon.innerHTML = `<img src="${response.daily[0].condition.icon_url}" />`;
@@ -85,6 +85,14 @@ function displayForecast(response) {
   forecastTempValueMin.innerHTML = Math.round(
     response.daily[0].temperature.minimum
   );
+}
+
+function forecastDate(date) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let day = days[date.getDay()];
+
+  return day;
 }
 
 let searchCityForm = document.querySelector("#search-form");
