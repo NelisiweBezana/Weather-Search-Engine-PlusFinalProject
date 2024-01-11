@@ -57,8 +57,7 @@ function showDate(date) {
   return `${day} ${fullCurrentTime}`;
 }
 
-function getForecast(event) {
-  event.preventDefault();
+function getForecast() {
   let searchInput = document.querySelector(".search-form-input");
   let city = searchInput.value;
 
