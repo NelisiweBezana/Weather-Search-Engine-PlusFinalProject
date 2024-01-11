@@ -31,6 +31,8 @@ function displayTemperature(response) {
 
   let weatherIcon = document.querySelector("#current-weather-temp-icon");
   weatherIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-weather-temp-icon" />`;
+
+  getForecast();
 }
 
 function showDate(date) {
@@ -53,6 +55,36 @@ function showDate(date) {
   }${currentTimeMinutes}`;
 
   return `${day} ${fullCurrentTime}`;
+}
+
+function getForecast(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector(".search-form-input");
+  let city = searchInput.value;
+
+  let apiKey = "6ot20ada7f719432a222baf96f0e9bb0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  //let date = new Date(response.data.time * 1000);
+  //let dateAndTime = document.querySelector("#day-0");
+  // dateAndTime.innerHTML = showDate(date);
+
+  let forecastIcon = document.querySelector("#icon-0");
+  forecastIcon.innerHTML = `<img src="${response.daily[0].condition.icon_url}" />`;
+
+  let forecastTempValueMax = document.querySelector("#temp-0-max");
+  forecastTempValueMax.innerHTML = Math.round(
+    response.daily[0].temperature.maximum
+  );
+
+  let forecastTempValueMin = document.querySelector("#temp-0-min");
+  forecastTempValueMin.innerHTML = Math.round(
+    response.daily[0].temperature.minimum
+  );
 }
 
 let searchCityForm = document.querySelector("#search-form");
