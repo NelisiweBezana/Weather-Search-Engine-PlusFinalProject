@@ -85,9 +85,10 @@ main {
 
 .weather-forecast {
   display: flex;
+  justify-content: space-between;
   background: #d9eef6;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 30px;
   box-shadow: 2px 2px 5px #99a9ae;
 }
 
@@ -100,6 +101,7 @@ main {
 
 .forecast-icon {
   text-align: center;
+  width: 50px;
 }
 
 .forecast-temp {
