@@ -31,8 +31,6 @@ function displayTemperature(response) {
 
   let weatherIcon = document.querySelector("#current-weather-temp-icon");
   weatherIcon.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-weather-temp-icon" />`;
-
-  getForecast();
 }
 
 function showDate(date) {
